@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="cxf xsd2wsdl" basedir=".">   
+   <property name="cxf.home" location ="c:\Users\xv881zo\.m2\repository\org\apache\cxf\cfx-tools-misctools\3.2.4"/>
+ 
+   <path id="cxf.classpath">
+      <fileset dir="${cxf.home}">
+         <include name="*.jar"/>
+      </fileset>
+   </path>
+       
+   <target name="cxfXsd2WSDL">
+      <java classname="org.apache.cxf.tools.misc.XSDToWSDL" fork="true">
+         <arg value="-t"/>
+         <arg value="http://org.apache/invoice"/>
+         <arg value="-n"/>
+         <arg value="Invoice"/>
+         <arg value="Invoice.xsd"/>
+         <classpath>
+            <path refid="cxf.classpath"/>
+         </classpath>
+      </java>
+   </target>
+</project>
